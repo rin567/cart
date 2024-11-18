@@ -1,0 +1,109 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+	padding: 0;
+}
+ul[class],
+ol[class] {
+	list-style: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+$mainTextColor: #1f2432;
+$mainBackgroundColor: #ffffff;
+$smallTextColor: #797b86;
+$backgroundColor: #f6f8fa;
+$buttonColor: #0069b4;
+
+body {
+	color: $mainTextColor;
+	font-family: 'Lato';
+	font-weight: 400;
+	background-color: $mainBackgroundColor;
+}
+h1 {
+	font-weight: 700;
+	font-size: 44px;
+}
+.cartHeader {
+	display: flex;
+}
+.cartHeader__button {
+	border: none;
+	background-color: transparent;
+	text-decoration: underline;
+}
+.cart {
+	display: flex;
+	justify-content: center;
+}
+.cartTotal {
+	background-color: $backgroundColor;
+	width: 425px;
+	height: 458px;
+	border-radius: 5px;
+	padding: 30px;
+}
+.cartList {
+	width: 800px;
+}
+.cartItem {
+	display: flex;
+	width: 800px;
+	height: 121px;
+}
+.quantityItem {
+	display: flex;
+	gap: 2px;
+}
+.quantityItem__buttonLeft {
+	height: 34px;
+	width: 34px;
+	border: none;
+	background-color: $backgroundColor;
+	border-radius: 4px 0 0 4px;
+}
+.quantityItem__buttonRigth {
+	height: 34px;
+	width: 34px;
+	border: none;
+	background-color: $backgroundColor;
+	border-radius: 0 4px 4px 0;
+}
+.quantityItem__total {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $backgroundColor;
+	height: 34px;
+	width: 34px;
+}
+
+.cartItem__delete {
+	height: 12px;
+	width: 12px;
+	background-image: url(~/assets/delete.svg);
+	background-size: cover;
+	border: none;
+	background-color: transparent;
+}
