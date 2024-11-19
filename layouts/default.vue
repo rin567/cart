@@ -6,5 +6,11 @@
 	<main>
 		<slot />
 	</main>
-	<footer><Slider /></footer>
+	<footer><Swiper /></footer>
 </template>
+<style lang="scss">
+header {
+	display: flex;
+	justify-content: space-between;
+}
+</style>

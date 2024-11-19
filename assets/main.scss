@@ -29,81 +29,320 @@ dl,
 dd {
 	margin: 0;
 }
+
 $mainTextColor: #1f2432;
 $mainBackgroundColor: #ffffff;
 $smallTextColor: #797b86;
 $backgroundColor: #f6f8fa;
 $buttonColor: #0069b4;
-
+$lineColor: #c4c4c4;
 body {
 	color: $mainTextColor;
 	font-family: 'Lato';
 	font-weight: 400;
 	background-color: $mainBackgroundColor;
+	padding: 60px 80px;
 }
 h1 {
 	font-weight: 700;
 	font-size: 44px;
 }
+h2 {
+	font-weight: 600;
+}
+h3 {
+	font-weight: 400;
+}
+
+.yourCart {
+	display: flex;
+	gap: 10px;
+	font-size: 12px;
+	&__total {
+		color: $smallTextColor;
+	}
+	&__header {
+		font-size: 14px;
+	}
+}
+
 .cartHeader {
 	display: flex;
+	align-items: flex-end;
+	width: 800px;
+	justify-content: space-between;
+	&__button {
+		border: none;
+		background-color: transparent;
+		text-decoration: underline;
+		color: $smallTextColor;
+		font-size: 14px;
+	}
+	&__total {
+		color: $smallTextColor;
+		font-size: 18px;
+	}
+	&__header {
+		display: flex;
+		gap: 22px;
+		align-items: flex-end;
+	}
 }
-.cartHeader__button {
-	border: none;
-	background-color: transparent;
-	text-decoration: underline;
-}
+
 .cart {
 	display: flex;
 	justify-content: center;
+	gap: 55px;
+	&__cart {
+		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 44px;
+	}
 }
+.cartList {
+	display: flex;
+	flex-direction: column;
+	width: 800px;
+	gap: 25px;
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 800px;
+		height: 121px;
+		border-bottom: solid 1px $lineColor;
+	}
+}
+.item {
+	display: flex;
+	width: 800px;
+	height: 121px;
+	&__text {
+		width: 263px;
+	}
+	&__name {
+		font-size: 16px;
+	}
+	&__art {
+		color: $smallTextColor;
+		font-size: 14px;
+		margin-top: 7px;
+	}
+	&__des {
+		font-size: 12px;
+		margin-top: 6px;
+	}
+	&__counter {
+		display: flex;
+		gap: 2px;
+	}
+	&__count {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: $backgroundColor;
+		height: 34px;
+		width: 34px;
+	}
+	&__buttonLeft {
+		height: 34px;
+		width: 34px;
+		border: none;
+		background-color: $backgroundColor;
+		border-radius: 4px 0 0 4px;
+		&:focus {
+			background-color: $smallTextColor;
+		}
+	}
+	&__buttonRight {
+		height: 34px;
+		width: 34px;
+		border: none;
+		background-color: $backgroundColor;
+		border-radius: 0 4px 4px 0;
+	}
+	&__delete {
+		height: 12px;
+		width: 12px;
+		background-image: url(~/assets/delete.svg);
+		background-size: cover;
+		border: none;
+		background-color: transparent;
+		align-self: first baseline;
+	}
+}
+
+.checkbox {
+	background-color: $backgroundColor;
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+	gap: 15px;
+	justify-content: center;
+	padding: 25px;
+	&__text {
+		font-size: 14px;
+		color: $smallTextColor;
+	}
+	h2 {
+		color: $mainTextColor;
+		font-size: 16px;
+	}
+	input {
+		height: 20px;
+		width: 20px;
+		border: 1px solid $mainTextColor;
+	}
+}
+
 .cartTotal {
 	background-color: $backgroundColor;
 	width: 425px;
 	height: 458px;
 	border-radius: 5px;
-	padding: 30px;
+	padding: 35px 30px;
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: 17px;
+		margin-top: 31px;
+		margin-bottom: 28px;
+	}
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 16px;
+		font-weight: 500;
+	}
+	&__buttonBlue {
+		width: 365px;
+		height: 54px;
+		border-radius: 4px;
+		border: none;
+		background-color: $buttonColor;
+		color: $mainBackgroundColor;
+		font-size: 18px;
+		font-weight: 600;
+	}
+	&__buttonWhite {
+		width: 365px;
+		height: 54px;
+		border-radius: 4px;
+		border: 1px solid $buttonColor;
+		background-color: $mainBackgroundColor;
+		color: $buttonColor;
+		font-size: 18px;
+		font-weight: 600;
+	}
+	&__btnContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin-top: 30px;
+	}
+	&__price {
+		font-size: 26px;
+		font-weight: 700;
+	}
+	&__priceTitle {
+		font-size: 18px;
+		font-weight: 600;
+	}
+	hr {
+		border: solid 0.5px $lineColor;
+	}
 }
-.cartList {
-	width: 800px;
+.footer {
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 95px;
+		margin-bottom: 47px;
+	}
+	&__title {
+		font-size: 30px;
+	}
 }
-.cartItem {
+.pagination {
 	display: flex;
-	width: 800px;
-	height: 121px;
+	gap: 15px;
+	&__left {
+		height: 50px;
+		width: 50px;
+		background-image: url(~/assets/leftpgn.svg);
+		background-size: cover;
+		border: none;
+		background-color: transparent;
+		align-self: first baseline;
+	}
+	&__right {
+		height: 50px;
+		width: 50px;
+		background-image: url(~/assets/rightpgn.svg);
+		background-size: cover;
+		border: none;
+		background-color: transparent;
+		align-self: first baseline;
+	}
 }
-.quantityItem {
-	display: flex;
-	gap: 2px;
+.swiper {
+	swiper-slide {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		background-color: $backgroundColor;
+		width: 305px;
+		height: 563px;
+		padding: 25px;
+		font-size: 14px;
+		font-weight: 400;
+	}
 }
-.quantityItem__buttonLeft {
-	height: 34px;
-	width: 34px;
-	border: none;
-	background-color: $backgroundColor;
-	border-radius: 4px 0 0 4px;
-}
-.quantityItem__buttonRigth {
-	height: 34px;
-	width: 34px;
-	border: none;
-	background-color: $backgroundColor;
-	border-radius: 0 4px 4px 0;
-}
-.quantityItem__total {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: $backgroundColor;
-	height: 34px;
-	width: 34px;
-}
-
-.cartItem__delete {
-	height: 12px;
-	width: 12px;
-	background-image: url(~/assets/delete.svg);
-	background-size: cover;
-	border: none;
-	background-color: transparent;
+.swiperItem {
+	&__info {
+		display: flex;
+		flex-direction: column;
+		height: 263px;
+		justify-content: space-between;
+	}
+	&__button {
+		width: 255px;
+		height: 52px;
+		border-radius: 4px;
+		border: none;
+		background-color: $buttonColor;
+		color: $mainBackgroundColor;
+		font-size: 18px;
+		font-weight: 600;
+	}
+	&__header {
+		font-size: 22px;
+		font-weight: 700;
+	}
+	&__text {
+		display: flex;
+		gap: 10px;
+		flex-direction: column;
+	}
+	&__price {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+	}
+	&__priceRub {
+		font-size: 22px;
+		font-weight: 500;
+	}
+	&__about {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	&__priceEur {
+		font-size: 16px;
+		color: $smallTextColor;
+	}
 }

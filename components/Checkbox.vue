@@ -2,11 +2,12 @@
 const cartStore = useCartStore()
 </script>
 <template>
-	<div>
+	<div class="checkbox">
 		<input type="checkbox" v-model="cartStore.install" />
-		<div>
-			<img src="~/assets/install.svg" alt="install" />
-			<h4>Установка</h4>
+
+		<img src="~/assets/install.svg" alt="install" />
+		<div class="checkbox__text">
+			<h2>Установка</h2>
 			<p>
 				Отметьте, если Вам необходима консультация профессионала по монтажу
 				выбранных товаров.

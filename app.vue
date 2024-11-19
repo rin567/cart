@@ -4,14 +4,26 @@ const cartStore = useCartStore()
 <template>
 	<NuxtLayout>
 		<section class="cartHeader">
-			<h1>Ваша корзина</h1>
-			<span>{{ cartStore.getTotalCount }}товар</span>
+			<div class="cartHeader__header">
+				<h1>Ваша корзина</h1>
+				<div class="cartHeader__total">
+					{{
+						`${cartStore.getTotalCount} товар${
+							cartStore.getTotalCount > 4
+								? 'ов'
+								: cartStore.getTotalCount > 1
+								? 'а'
+								: ''
+						}`
+					}}
+				</div>
+			</div>
 			<button @click="cartStore.deleteAll()" class="cartHeader__button">
 				Очистить корзину
 			</button>
 		</section>
 		<section class="cart">
-			<div>
+			<div class="cart__cart">
 				<CartList />
 				<Checkbox></Checkbox>
 			</div>
