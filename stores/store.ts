@@ -59,11 +59,15 @@ export const useCartStore = defineStore('cartStore', () => {
 			return item
 		})
 	}
-	const decrement = (id: number) => {
-		cartList.value = cartList.value.map(item => {
-			if (item.id === id) item.count -= 1
-			return item
-		})
+	const decrement = (id: number, count: number) => {
+		if (count === 1) {
+			deleteItem(id)
+		} else {
+			cartList.value = cartList.value.map(item => {
+				if (item.id === id) item.count -= 1
+				return item
+			})
+		}
 	}
 
 	const getTotalCount = computed(() => {

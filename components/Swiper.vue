@@ -5,9 +5,6 @@ const swiper = useSwiper(containerRef, {
 	slidesPerView: 4,
 	spaceBetween: 10,
 	slidesPerGroup: 4,
-	pagination: {
-		type: 'fraction',
-	},
 })
 </script>
 

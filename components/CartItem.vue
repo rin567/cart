@@ -25,7 +25,7 @@ const cartStore = useCartStore()
 		</div>
 		<div class="item__counter">
 			<button
-				@click="cartStore.decrement(cartItem.id)"
+				@click="cartStore.decrement(cartItem.id, cartItem.count)"
 				class="item__buttonLeft"
 			>
 				-
