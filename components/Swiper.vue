@@ -12,8 +12,30 @@ const swiper = useSwiper(containerRef, {
 	<div class="footer__header">
 		<h2 class="footer__title">Просмотренные товары</h2>
 		<div class="pagination">
-			<button class="pagination__left" @click="swiper.prev()"></button>
-			<button class="pagination__right" @click="swiper.next()"></button>
+			<button
+				class="pagination__left"
+				@click="
+					() => {
+						if (viewedStore.currentPage > 1) viewedStore.currentPage -= 1
+						swiper.prev()
+					}
+				"
+			></button>
+			<div>
+				{{
+					`${viewedStore.currentPage} / ${viewedStore.viewedList.length / 4}`
+				}}
+			</div>
+			<button
+				class="pagination__right"
+				@click="
+					() => {
+						if (viewedStore.currentPage < viewedStore.viewedList.length / 4)
+							viewedStore.currentPage += 1
+						swiper.next()
+					}
+				"
+			></button>
 		</div>
 	</div>
 	<swiper-container class="swiper" ref="containerRef">

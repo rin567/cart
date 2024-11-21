@@ -71,12 +71,16 @@ h3 {
 	align-items: flex-end;
 	width: 800px;
 	justify-content: space-between;
+	align-items: baseline;
 	&__button {
 		border: none;
 		background-color: transparent;
 		text-decoration: underline;
 		color: $smallTextColor;
 		font-size: 14px;
+		&:hover {
+			color: $mainTextColor;
+		}
 	}
 	&__total {
 		color: $smallTextColor;
@@ -85,8 +89,16 @@ h3 {
 	&__header {
 		display: flex;
 		gap: 22px;
-		align-items: flex-end;
+		align-items: baseline;
 	}
+}
+.empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 22px;
+	color: $smallTextColor;
+	height: 607px;
 }
 
 .cart {
@@ -105,6 +117,7 @@ h3 {
 	display: flex;
 	flex-direction: column;
 	width: 800px;
+	height: 420px;
 	gap: 25px;
 	&__item {
 		display: flex;
@@ -138,6 +151,12 @@ h3 {
 		display: flex;
 		gap: 2px;
 	}
+	&__counterPrice {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+	}
 	&__count {
 		display: flex;
 		align-items: center;
@@ -152,7 +171,7 @@ h3 {
 		border: none;
 		background-color: $backgroundColor;
 		border-radius: 4px 0 0 4px;
-		&:focus {
+		&:hover {
 			background-color: $smallTextColor;
 		}
 	}
@@ -162,6 +181,9 @@ h3 {
 		border: none;
 		background-color: $backgroundColor;
 		border-radius: 0 4px 4px 0;
+		&:hover {
+			background-color: $smallTextColor;
+		}
 	}
 	&__delete {
 		height: 12px;
@@ -198,6 +220,7 @@ h3 {
 }
 
 .cartTotal {
+	margin-top: 50px;
 	background-color: $backgroundColor;
 	width: 425px;
 	height: 458px;
@@ -226,6 +249,9 @@ h3 {
 		color: $mainBackgroundColor;
 		font-size: 18px;
 		font-weight: 600;
+		&:hover {
+			background-color: $smallTextColor;
+		}
 	}
 	&__buttonWhite {
 		width: 365px;
@@ -269,6 +295,8 @@ h3 {
 .pagination {
 	display: flex;
 	gap: 15px;
+	align-items: center;
+	font-size: 24px;
 	&__left {
 		height: 50px;
 		width: 50px;

@@ -1,5 +1,14 @@
 <script setup lang="ts">
 const cartStore = useCartStore()
+const numberFormat = new Intl.NumberFormat('ru-RU')
+
+const sendTotal = list => {
+	$fetch('/api/cart', {
+		method: 'POST',
+		body: list,
+	})
+	alert('Заказ оформлен.')
+}
 </script>
 <template>
 	<div class="cartTotal">
@@ -7,7 +16,7 @@ const cartStore = useCartStore()
 		<div class="cartTotal__info">
 			<div class="cartTotal__row">
 				<span>Сумма заказа</span>
-				<span>{{ `${cartStore.getTotalPrice} ₽` }}</span>
+				<span>{{ `${numberFormat.format(cartStore.getTotalPrice)} ₽` }}</span>
 			</div>
 			<div class="cartTotal__row">
 				<span>Количество</span>
@@ -21,10 +30,22 @@ const cartStore = useCartStore()
 		<hr />
 		<div class="cartTotal__row">
 			<span class="cartTotal__priceTitle">Стоимость товаров</span>
-			<span class="cartTotal__price">{{ `${cartStore.getTotalPrice} ₽` }}</span>
+			<span class="cartTotal__price">{{
+				`${numberFormat.format(cartStore.getTotalPrice)} ₽`
+			}}</span>
 		</div>
 		<div class="cartTotal__btnContainer">
-			<button class="cartTotal__buttonBlue">Оформить заказ</button>
+			<button
+				@click="
+					sendTotal({
+						install: cartStore.install,
+						cartList: { ...cartStore.cartList },
+					})
+				"
+				class="cartTotal__buttonBlue"
+			>
+				Оформить заказ
+			</button>
 			<button class="cartTotal__buttonWhite">Купить в 1 клик</button>
 		</div>
 	</div>

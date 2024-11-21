@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const cartStore = useCartStore()
+const numberFormat = new Intl.NumberFormat('ru-RU')
 </script>
 <template>
 	<div class="yourCart">
@@ -9,7 +10,7 @@ const cartStore = useCartStore()
 			<div class="yourCart__total">
 				{{
 					`${cartStore.getTotalCount} товар${
-						cartStore.getTotalCount > 4
+						cartStore.getTotalCount > 4 || cartStore.getTotalCount === 0
 							? 'ов'
 							: cartStore.getTotalCount > 1
 							? 'а'
@@ -17,7 +18,7 @@ const cartStore = useCartStore()
 					}`
 				}}
 			</div>
-			<div>{{ `${cartStore.getTotalPrice} ₽` }}</div>
+			<div>{{ `${numberFormat.format(cartStore.getTotalPrice)} ₽` }}</div>
 		</div>
 	</div>
 </template>

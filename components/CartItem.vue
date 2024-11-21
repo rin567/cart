@@ -12,6 +12,7 @@ defineProps<{
 	cartItem: IItem
 }>()
 const cartStore = useCartStore()
+const numberFormat = new Intl.NumberFormat('ru-RU')
 </script>
 <template>
 	<li class="cartList__item">
@@ -23,22 +24,31 @@ const cartStore = useCartStore()
 			</p>
 			<p class="item__art">Aртикул: {{ cartItem.article }}</p>
 		</div>
-		<div class="item__counter">
-			<button
-				@click="cartStore.decrement(cartItem.id, cartItem.count)"
-				class="item__buttonLeft"
-			>
-				-
-			</button>
-			<div class="item__count">{{ cartItem.count }}</div>
-			<button
-				@click="cartStore.increment(cartItem.id)"
-				class="item__buttonRight"
-			>
-				+
-			</button>
+		<div class="item__counterPrice">
+			<div class="item__counter">
+				<button
+					@click="cartStore.decrement(cartItem.id, cartItem.count)"
+					class="item__buttonLeft"
+				>
+					-
+				</button>
+				<div class="item__count">{{ cartItem.count }}</div>
+				<button
+					@click="cartStore.increment(cartItem.id)"
+					class="item__buttonRight"
+				>
+					+
+				</button>
+			</div>
+			<div>
+				{{
+					cartItem.count > 1
+						? `${numberFormat.format(cartItem.price)} ₽/шт.`
+						: ''
+				}}
+			</div>
 		</div>
-		<div>{{ `${cartItem.price * cartItem.count} ₽` }}</div>
+		<div>{{ `${numberFormat.format(cartItem.price * cartItem.count)} ₽` }}</div>
 		<button
 			@click="cartStore.deleteItem(cartItem.id)"
 			class="item__delete"
